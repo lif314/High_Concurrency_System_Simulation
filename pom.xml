@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.6</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.lif314.seckill</groupId>
+    <artifactId>High_Concurrency_System_Simulation</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+
+    <name>High_Concurrency_System_Simulation</name>
+    <description>聚合服务</description>
+    <packaging>pom</packaging>
+
+    <!--聚合-->
+    <modules>
+        <module>hcss-gateway</module>
+        <module>hcss-common</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+</project>

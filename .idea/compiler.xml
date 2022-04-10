@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hcss-order" />
+        <module name="hcss-gateway" />
+        <module name="hcss-seckill" />
+        <module name="hcss-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="High_Concurrency_System_Simulation" options="-parameters" />
+      <module name="hcss-common" options="-parameters" />
+      <module name="hcss-gateway" options="-parameters" />
+      <module name="hcss-order" options="-parameters" />
+      <module name="hcss-seckill" options="-parameters" />
+    </option>
+  </component>
+</project>
