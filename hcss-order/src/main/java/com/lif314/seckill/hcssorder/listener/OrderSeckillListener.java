@@ -24,7 +24,7 @@ public class OrderSeckillListener {
 
         try{
             // 创建秒杀订单
-            orderService.cereateSeckillOrder(seckillOrder);
+            orderService.createSeckillOrder(seckillOrder);
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
 
         }catch (Exception e){

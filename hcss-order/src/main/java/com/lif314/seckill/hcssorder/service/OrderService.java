@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface OrderService {
-    void cereateSeckillOrder(SeckillOrderTo seckillOrder);
+    void createSeckillOrder(SeckillOrderTo seckillOrder);
 }

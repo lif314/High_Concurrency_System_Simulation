@@ -21,6 +21,8 @@
     <modules>
         <module>hcss-gateway</module>
         <module>hcss-common</module>
+        <module>hcss-order</module>
+        <module>hcss-seckill</module>
     </modules>
 
     <properties>
