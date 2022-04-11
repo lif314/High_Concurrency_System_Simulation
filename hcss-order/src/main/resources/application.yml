@@ -8,9 +8,15 @@ spring:
     nacos:
       discovery:
         server-addr: 121.36.229.15:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 139.198.167.224:31267
+
   # 模块名
   application:
     name: hcss-order
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
