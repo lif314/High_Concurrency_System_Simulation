@@ -19,4 +19,7 @@ public class SeckillConstant {
 
     // 秒杀用户商品数量限制 -- 幂等性
     public static final String USER_SECKILL_LIMIT = "seckill:user:";
+
+    // 秒杀成功的订单信息
+    public static final String ORDER_CACHE_PREFIX = "seckill:orders";
 }

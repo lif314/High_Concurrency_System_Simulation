@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/hcss-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hcss-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hcss-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hcss-product/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hcss-seckill/src/main/java" charset="UTF-8" />
   </component>
 </project>

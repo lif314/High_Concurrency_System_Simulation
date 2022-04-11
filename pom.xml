@@ -23,6 +23,7 @@
         <module>hcss-common</module>
         <module>hcss-order</module>
         <module>hcss-seckill</module>
+        <module>hcss-product</module>
     </modules>
 
     <properties>

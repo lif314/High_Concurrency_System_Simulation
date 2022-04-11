@@ -10,6 +10,7 @@
         <module name="hcss-gateway" />
         <module name="hcss-seckill" />
         <module name="hcss-common" />
+        <module name="hcss-product" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="hcss-common" options="-parameters" />
       <module name="hcss-gateway" options="-parameters" />
       <module name="hcss-order" options="-parameters" />
+      <module name="hcss-product" options="-parameters" />
       <module name="hcss-seckill" options="-parameters" />
     </option>
   </component>

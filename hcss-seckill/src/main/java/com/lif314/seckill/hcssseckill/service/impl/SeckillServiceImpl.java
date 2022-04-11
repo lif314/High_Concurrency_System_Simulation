@@ -15,9 +15,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 
 @Service("seckillService")
@@ -46,7 +46,7 @@ public class SeckillServiceImpl implements SeckillService {
             });
             // 校验合法性
             // 1、校验是否过期
-            if(redisTo == null){
+            if (redisTo == null) {
                 return null;
             }
             Long startTime = redisTo.getStartTime();
