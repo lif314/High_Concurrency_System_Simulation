@@ -17,7 +17,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
+
 
 
 @Service("seckillService")
@@ -41,7 +41,7 @@ public class SeckillServiceImpl implements SeckillService {
 // 1、获取当前商品的详细信息
         BoundHashOperations<String, String, String> hashOps = redisTemplate.boundHashOps(SeckillConstant.SKUKILL_CACHE_PREFIX);
         String s = hashOps.get(killId);
-        if (!StringUtils.hasLength(s)) {  // 判断是否为空
+        if (StringUtils.hasLength(s)) {  // 判断是否为空
             SecKillSkuRedisTo redisTo = JSON.parseObject(s, new TypeReference<SecKillSkuRedisTo>() {
             });
             // 校验合法性
@@ -49,10 +49,10 @@ public class SeckillServiceImpl implements SeckillService {
             if (redisTo == null) {
                 return null;
             }
-            Long startTime = redisTo.getStartTime();
-            Long endTime = redisTo.getEndTime();
-            long time = new Date().getTime();
-            if (time >= startTime && time <= endTime) {
+//            Long startTime = redisTo.getStartTime();
+//            Long endTime = redisTo.getEndTime();
+//            long time = new Date().getTime();
+//            if (time >= startTime && time <= endTime) {
                 // 2、校验随机码是否正确
                 String key = redisTo.getPromotionSessionId() + "_" + redisTo.getSkuId();
                 if (randomCode.equals(redisTo.getRandomCode()) && killId.equals(key)) {
@@ -61,8 +61,8 @@ public class SeckillServiceImpl implements SeckillService {
                         // 4、校验该用户是否已经买过了
                         // 幂等性处理：redis占位 userId_sessionId_skuId
                         String userKey = SeckillConstant.USER_SECKILL_LIMIT + userId + "_" + redisTo.getPromotionSessionId() + "_" + redisTo.getSkuId();
-                        long ttl = endTime - time; // 超时时间 milliseconds
-                        Boolean ifAbsent = redisTemplate.opsForValue().setIfAbsent(userKey, num.toString(), ttl, TimeUnit.MILLISECONDS);// 不存在才占位,超时时间为场次结束时间
+//                        long ttl = endTime - time; // 超时时间 milliseconds
+                        Boolean ifAbsent = redisTemplate.opsForValue().setIfAbsent(userKey, num.toString(), 24, TimeUnit.DAYS);// 不存在才占位,超时时间为场次结束时间
                         if (Boolean.TRUE.equals(ifAbsent)) {
                             // 占位成功，从来没有买过
                             // 减库存：减信号量
@@ -93,8 +93,7 @@ public class SeckillServiceImpl implements SeckillService {
                 }
             }
 
-
-        }
+//        }
         return null;
     }
 }

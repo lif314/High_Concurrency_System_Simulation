@@ -36,6 +36,9 @@ public class SeckillOrderTo {
      */
     private Long memberId;
 
+    public SeckillOrderTo() {
+    }
+
     public String getOrderSn() {
         return orderSn;
     }

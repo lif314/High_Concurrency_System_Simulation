@@ -1,7 +1,7 @@
 package com.lif314.seckill.hcssorder.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.alibaba.fastjson.TypeReference;
 import com.lif314.seckill.hcsscommon.constant.SeckillConstant;
 import com.lif314.seckill.hcsscommon.to.SeckillOrderTo;
 import com.lif314.seckill.hcssorder.service.OrderService;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @Service("orderService")
@@ -38,11 +37,10 @@ public class OrderServiceImpl implements OrderService {
         BoundHashOperations<String, String, Object> hashOps = redisTemplate.boundHashOps(SeckillConstant.ORDER_CACHE_PREFIX);
         Set<String> keys = hashOps.keys();
         if(keys != null){
-            List<Object> objects = hashOps.multiGet(keys);
-            return objects.stream().map((o) -> {
-                String s = JSON.toJSONString(o);
-                return JSON.parseObject(s, SeckillOrderTo.class);
-            }).collect(Collectors.toList());
+            List<Object> objects =  hashOps.multiGet(keys);
+            List<SeckillOrderTo> seckillOrderTos = JSON.parseObject( objects.toString(), new TypeReference<List<SeckillOrderTo>>() {
+            });
+            return seckillOrderTos;
         }
         return null;
     }
