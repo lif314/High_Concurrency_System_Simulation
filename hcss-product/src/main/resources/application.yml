@@ -8,11 +8,15 @@ spring:
     nacos:
       discovery:
         server-addr: 121.36.229.15:8848
+#    sentinel:
+#      transport:
+#        port: 8719
+#        dashboard: 139.198.167.224:31267
+#        clientIp:  192.168.133.1
     sentinel:
       transport:
         port: 8719
-        dashboard: 139.198.167.224:31267
-
+        dashboard: sentinel-service.xiaoji:8080
   # 模块名
   application:
     name: hcss-product

@@ -23,7 +23,7 @@ public class OrderSeckillListener {
     @RabbitListener(queues = "order.seckill.order.queue")
     public void SeckillOrderListener(SeckillOrderTo seckillOrder, Channel channel, Message message) throws IOException {
 
-        System.out.println("监听到Order消息:" + seckillOrder.toString());
+//        System.out.println("监听到Order消息:" + seckillOrder.toString());
         try{
             // 创建秒杀订单
             orderService.createSeckillOrder(seckillOrder);
